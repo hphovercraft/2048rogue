@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         }
     }
 
-    override fun onDown(e: MotionEvent?) = true
-    override fun onShowPress(e: MotionEvent?) {}
-    override fun onSingleTapUp(e: MotionEvent?) = false
-    override fun onLongPress(e: MotionEvent?) {}
+    override fun onDown(e: MotionEvent): Boolean = true
+    override fun onShowPress(e: MotionEvent) {}
+    override fun onSingleTapUp(e: MotionEvent): Boolean = false
+    override fun onLongPress(e: MotionEvent) {}
 
-    override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+    override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
         return false
     }
 
