@@ -59,18 +59,18 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         }
     }
 
-    override fun onDown(e: MotionEvent): Boolean = true
-    override fun onShowPress(e: MotionEvent) {}
-    override fun onSingleTapUp(e: MotionEvent): Boolean = false
-    override fun onLongPress(e: MotionEvent) {}
+    override fun onDown(e: MotionEvent?): Boolean = true
+    override fun onShowPress(e: MotionEvent?) {}
+    override fun onSingleTapUp(e: MotionEvent?): Boolean = false
+    override fun onLongPress(e: MotionEvent?) {}
 
-    override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+    override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
         return false
     }
 
-    override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
-        val diffX = e2.x - e1.x
-        val diffY = e2.y - e1.y
+    override fun onFling(e1: MotionEvent?, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
+        val diffX = e2.x - (e1?.x ?: 0f)
+        val diffY = e2.y - (e1?.y ?: 0f)
         if (kotlin.math.abs(diffX) > kotlin.math.abs(diffY)) {
             if (diffX > 0) move(Direction.RIGHT) else move(Direction.LEFT)
         } else {
